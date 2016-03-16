@@ -1,4 +1,4 @@
-package com.example.pedro.pruebadagger.UI.model;
+package com.example.pedro.pruebadagger.data.model;
 
 /**
  * Created by pedro on 14/03/16.

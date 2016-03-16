@@ -1,8 +1,9 @@
-package com.example.pedro.pruebadagger.UI.model;
+package com.example.pedro.pruebadagger.data.retrofit;
 
 import android.util.Log;
 
-import com.example.pedro.pruebadagger.UI.presenter.TakeList;
+import com.example.pedro.pruebadagger.data.model.Vengadores;
+import com.example.pedro.pruebadagger.ui.main.view.MainView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitCharge implements RetrofitInterator{
 
     @Override
-    public void onClickAll(final TakeList takeList) {
+    public void onClickAll(final MainView takeList) {
 
         makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
             @Override
@@ -35,7 +36,7 @@ public class RetrofitCharge implements RetrofitInterator{
     }
 
     @Override
-    public void onClickActive(final TakeList takeList) {
+    public void onClickActive(final MainView takeList) {
 
         makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
             @Override
@@ -58,7 +59,7 @@ public class RetrofitCharge implements RetrofitInterator{
     }
 
     @Override
-    public void onClickInactive(final TakeList takeList) {
+    public void onClickInactive(final MainView takeList) {
 
         makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
             @Override

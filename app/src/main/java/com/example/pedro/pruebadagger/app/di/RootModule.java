@@ -1,9 +1,9 @@
-package com.example.pedro.pruebadagger.APP.di;
+package com.example.pedro.pruebadagger.app.di;
 
 import android.content.Context;
 
-import com.example.pedro.pruebadagger.UI.view.LoginActivity;
-import com.example.pedro.pruebadagger.UI.view.MainActivity;
+import com.example.pedro.pruebadagger.ui.login.view.LoginActivity;
+import com.example.pedro.pruebadagger.ui.main.view.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -15,8 +15,9 @@ import dagger.Provides;
  */
 
 @Module(includes = {
-        MainModule.class,
-        NavigatorModule.class
+        MainPresenterModule.class,
+        NavigatorModule.class,
+        LoginPresenterModule.class
 },
         injects = {
         MainActivity.class,

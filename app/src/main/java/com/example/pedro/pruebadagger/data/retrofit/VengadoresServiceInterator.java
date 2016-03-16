@@ -1,4 +1,6 @@
-package com.example.pedro.pruebadagger.UI.model;
+package com.example.pedro.pruebadagger.data.retrofit;
+
+import com.example.pedro.pruebadagger.data.model.Vengadores;
 
 import java.util.List;
 

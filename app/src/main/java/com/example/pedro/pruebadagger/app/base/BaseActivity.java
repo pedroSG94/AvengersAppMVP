@@ -1,11 +1,10 @@
-package com.example.pedro.pruebadagger.APP.base;
+package com.example.pedro.pruebadagger.app.base;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.pedro.pruebadagger.APP.di.App;
-import com.example.pedro.pruebadagger.APP.navigator.Navigator;
-import com.example.pedro.pruebadagger.UI.view.MainActivity;
+import com.example.pedro.pruebadagger.app.App;
+import com.example.pedro.pruebadagger.app.navigator.Navigator;
 
 import javax.inject.Inject;
 

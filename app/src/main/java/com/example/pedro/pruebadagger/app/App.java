@@ -1,7 +1,9 @@
-package com.example.pedro.pruebadagger.APP.di;
+package com.example.pedro.pruebadagger.app;
 
 
 import android.app.Application;
+
+import com.example.pedro.pruebadagger.app.di.RootModule;
 
 import dagger.ObjectGraph;
 

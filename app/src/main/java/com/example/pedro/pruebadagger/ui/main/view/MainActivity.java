@@ -1,22 +1,25 @@
-package com.example.pedro.pruebadagger.UI.view;
+package com.example.pedro.pruebadagger.ui.main.view;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.pedro.pruebadagger.APP.base.BaseActivity;
+import com.example.pedro.pruebadagger.app.base.BaseActivity;
 import com.example.pedro.pruebadagger.R;
-import com.example.pedro.pruebadagger.UI.model.Vengadores;
-import com.example.pedro.pruebadagger.UI.presenter.MainPresenter;
-import com.example.pedro.pruebadagger.UI.presenter.TakeList;
+import com.example.pedro.pruebadagger.ui.main.adapter.CustomAdapter;
+import com.example.pedro.pruebadagger.data.model.Vengadores;
+import com.example.pedro.pruebadagger.ui.main.presenter.MainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseActivity implements Button.OnClickListener, TakeList{
+/**
+ * Necesario un presenter por activity
+ */
+public class MainActivity extends BaseActivity implements Button.OnClickListener, MainView {
 
     private List<Vengadores> avengerList = new ArrayList<>();
     private CustomAdapter adapter;

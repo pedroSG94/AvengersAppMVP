@@ -1,4 +1,4 @@
-package com.example.pedro.pruebadagger.UI.view;
+package com.example.pedro.pruebadagger.ui.main.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pedro.pruebadagger.R;
-import com.example.pedro.pruebadagger.UI.model.Vengadores;
+import com.example.pedro.pruebadagger.data.model.Vengadores;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
