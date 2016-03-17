@@ -1,6 +1,5 @@
 package com.example.pedro.pruebadagger.app;
 
-
 import android.app.Application;
 
 import com.example.pedro.pruebadagger.app.di.RootModule;

@@ -1,8 +1,5 @@
 package com.example.pedro.pruebadagger.app.di;
 
-import com.example.pedro.pruebadagger.app.navigator.Navigator;
-import com.example.pedro.pruebadagger.ui.login.presenter.LoginPresenter;
-import com.example.pedro.pruebadagger.ui.login.presenter.LoginPresenterImp;
 import com.example.pedro.pruebadagger.ui.main.presenter.MainPresenter;
 import com.example.pedro.pruebadagger.ui.main.presenter.MainPresenterImp;
 
