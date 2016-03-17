@@ -2,7 +2,6 @@ package com.example.pedro.pruebadagger.ui.main.view;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.pedro.pruebadagger.app.base.BaseActivity;
@@ -16,10 +15,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
+import butterknife.OnClick;
+
 /**
  * Necesario un presenter por activity
  */
-public class MainActivity extends BaseActivity implements Button.OnClickListener, MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
     private List<Vengadores> avengerList = new ArrayList<>();
     private CustomAdapter adapter;
@@ -27,25 +29,18 @@ public class MainActivity extends BaseActivity implements Button.OnClickListener
     @Inject
     MainPresenter presenter;
 
+    @Bind(R.id.lv_avengers) ListView lvAvengers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        injectView(R.layout.activity_main);
 
-        Button bAll = (Button) findViewById(R.id.b_All);
-        bAll.setOnClickListener(this);
-        Button bActive = (Button) findViewById(R.id.b_active);
-        bActive.setOnClickListener(this);
-        Button bInactive = (Button) findViewById(R.id.b_inactive);
-        bInactive.setOnClickListener(this);
-
-        ListView lvAvengers = (ListView) findViewById(R.id.lv_avengers);
         adapter = new CustomAdapter(this, avengerList);
         lvAvengers.setAdapter(adapter);
-
     }
 
-    @Override
+    @OnClick({R.id.b_All, R.id.b_active, R.id.b_inactive})
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.b_All:

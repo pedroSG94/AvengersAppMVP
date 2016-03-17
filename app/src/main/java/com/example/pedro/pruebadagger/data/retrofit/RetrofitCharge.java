@@ -1,90 +1,35 @@
 package com.example.pedro.pruebadagger.data.retrofit;
 
-import android.util.Log;
-
-import com.example.pedro.pruebadagger.data.model.Vengadores;
+import com.example.pedro.pruebadagger.domain.interator.ClickActiveInterator;
+import com.example.pedro.pruebadagger.domain.interator.ClickAllInterator;
+import com.example.pedro.pruebadagger.domain.interator.ClickInactiveInterator;
+import com.example.pedro.pruebadagger.domain.RetrofitService;
 import com.example.pedro.pruebadagger.ui.main.view.MainView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import javax.inject.Inject;
 
 /**
  * Created by pedro on 15/03/16.
  */
 public class RetrofitCharge implements RetrofitInterator{
 
+    private RetrofitService retrofitService;
+
     @Override
     public void onClickAll(final MainView takeList) {
-
-        makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
-            @Override
-            public void onResponse(Call<List<Vengadores>> call, Response<List<Vengadores>> response) {
-                takeList.takeAllListAvengers(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<List<Vengadores>> call, Throwable t) {
-                Log.e("avengersError", t.getMessage());
-            }
-        });
+        retrofitService = new ClickAllInterator();
+        retrofitService.makeCallback(takeList);
     }
 
     @Override
     public void onClickActive(final MainView takeList) {
-
-        makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
-            @Override
-            public void onResponse(Call<List<Vengadores>> call, Response<List<Vengadores>> response) {
-
-                List<Vengadores> avengersActive = new ArrayList<>();
-                for (Vengadores v : response.body()) {
-                    if (v.isActive()) {
-                        avengersActive.add(v);
-                    }
-                }
-                takeList.takeActiveListAvengers(avengersActive);
-            }
-
-            @Override
-            public void onFailure(Call<List<Vengadores>> call, Throwable t) {
-                Log.e("avengersError", t.getMessage());
-            }
-        });
+        retrofitService = new ClickActiveInterator();
+        retrofitService.makeCallback(takeList);
     }
 
     @Override
     public void onClickInactive(final MainView takeList) {
-
-        makeService().getListAvengers().enqueue(new Callback<List<Vengadores>>() {
-            @Override
-            public void onResponse(Call<List<Vengadores>> call, Response<List<Vengadores>> response) {
-                List<Vengadores> avengersInactive = new ArrayList<>();
-                for (Vengadores v : response.body()) {
-                    if (!v.isActive()) {
-                        avengersInactive.add(v);
-                    }
-                }
-                takeList.takeInactiveListAvengers(avengersInactive);
-            }
-
-            @Override
-            public void onFailure(Call<List<Vengadores>> call, Throwable t) {
-                Log.e("avengersError", t.getMessage());
-            }
-        });
-    }
-    public VengadoresServiceInterator makeService(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://demo9277769.mockable.io")
-                .build();
-
-        return retrofit.create(VengadoresServiceInterator.class);
+        retrofitService = new ClickInactiveInterator();
+        retrofitService.makeCallback(takeList);
     }
 }
