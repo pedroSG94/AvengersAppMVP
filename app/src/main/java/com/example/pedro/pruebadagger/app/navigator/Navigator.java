@@ -11,4 +11,6 @@ public interface Navigator {
     void setActivity(Activity activity);
     void goBack();
     void goToMain();
+    void goToLogin();
+    void goToDescription();
 }

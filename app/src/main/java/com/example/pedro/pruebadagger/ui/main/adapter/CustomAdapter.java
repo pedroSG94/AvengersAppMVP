@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pedro.pruebadagger.R;
-import com.example.pedro.pruebadagger.data.model.Vengadores;
+import com.example.pedro.pruebadagger.domain.model.Avengers;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,9 +20,9 @@ import java.util.List;
 public class CustomAdapter extends BaseAdapter{
 
     private Context context;
-    private List<Vengadores> avengersList;
+    private List<Avengers> avengersList;
 
-    public CustomAdapter(Context context, List<Vengadores> avengersList){
+    public CustomAdapter(Context context, List<Avengers> avengersList){
         this.context = context;
         this.avengersList = avengersList;
     }
@@ -50,8 +50,8 @@ public class CustomAdapter extends BaseAdapter{
         if (row == null){
             row = LayoutInflater.from(context).inflate(R.layout.lv_item_inflate_main, null, false);
             holder = new ViewHolder();
-            holder.tv_character = (TextView) row.findViewById(R.id.tv_character);
-            holder.tv_name = (TextView) row.findViewById(R.id.tv_name);
+            holder.tv_character = (TextView) row.findViewById(R.id.tv_character_description);
+            holder.tv_name = (TextView) row.findViewById(R.id.tv_name_description);
             holder.iv_image = (ImageView) row.findViewById(R.id.iv_image);
             holder.tv_active = (TextView) row.findViewById(R.id.tv_active);
             row.setTag(holder);
@@ -60,7 +60,7 @@ public class CustomAdapter extends BaseAdapter{
             holder = (ViewHolder) row.getTag();
         }
 
-        final Vengadores avenger = avengersList.get(position);
+        final Avengers avenger = avengersList.get(position);
 
         holder.tv_character.setText(avenger.getHeroe());
         holder.tv_name.setText(avenger.getName());

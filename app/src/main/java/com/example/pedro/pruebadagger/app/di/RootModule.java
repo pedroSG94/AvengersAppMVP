@@ -2,6 +2,7 @@ package com.example.pedro.pruebadagger.app.di;
 
 import android.content.Context;
 
+import com.example.pedro.pruebadagger.ui.description.view.DescriptionActivity;
 import com.example.pedro.pruebadagger.ui.login.view.LoginActivity;
 import com.example.pedro.pruebadagger.ui.main.view.MainActivity;
 
@@ -15,13 +16,16 @@ import dagger.Provides;
  */
 
 @Module(includes = {
-        MainPresenterModule.class,
+        PresenterModule.class,
         NavigatorModule.class,
-        LoginPresenterModule.class
+        ExecutorModule.class,
+        InteractorModule.class,
+        MapperModule.class
 },
         injects = {
         MainActivity.class,
-        LoginActivity.class
+        LoginActivity.class,
+        DescriptionActivity.class
 },
         library = true
 )
